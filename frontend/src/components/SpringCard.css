@@ -1,0 +1,228 @@
+.spring-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 32px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid #000;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.spring-card.clickable {
+  cursor: pointer;
+}
+
+.spring-card.clickable:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: #000;
+  color: #fff;
+}
+
+.spring-card.clickable:active {
+  transform: scale(1.02) translateY(-5px);
+}
+
+.spring-card:not(.clickable) {
+  cursor: default;
+}
+
+.spring-card:not(.clickable):hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.spring-card.clickable:hover::after {
+  content: '→';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  animation: bounceRight 0.6s ease infinite;
+}
+
+@keyframes bounceRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+.spring-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spring-card:hover::before {
+  opacity: 1;
+}
+
+.spring-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.spring-card-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.spring-card:hover .spring-card-title {
+  color: #fff;
+}
+
+.spring-card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.spring-card:hover .spring-card-description {
+  color: #ddd;
+}
+
+.spring-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tech-tag {
+  background: #f0f0f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #000;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.spring-card:hover .tech-tag {
+  background: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+.spring-card-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  margin-top: 16px;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.spring-card:hover .spring-card-link {
+  color: #fff;
+}
+
+.link-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.spring-card-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.spring-card:hover .spring-card-link::before {
+  transform: scaleX(1);
+  background: #fff;
+}
+
+/* Skills Card Variant */
+.spring-card.skills-card {
+  min-height: 200px;
+  padding: 28px;
+}
+
+.spring-card.skills-card .spring-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.spring-card.skills-card .tech-tag {
+  background: #f5f5f5;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border: 1px solid #e0e0e0;
+}
+
+.spring-card.skills-card:hover .tech-tag {
+  background: #444;
+  color: #fff;
+  border-color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .spring-card {
+    padding: 24px;
+    min-height: 240px;
+  }
+
+  .spring-card-title {
+    font-size: 1.5rem;
+  }
+
+  .spring-card-description {
+    font-size: 0.95rem;
+  }
+
+  .spring-card:hover {
+    transform: scale(1.02) translateY(-5px);
+  }
+}
