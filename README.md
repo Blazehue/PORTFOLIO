@@ -267,7 +267,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Blazehue**
 - GitHub: [@Blazehue](https://github.com/Blazehue)
-- Portfolio: [Your Portfolio URL]
+- Portfolio: https://rajatp.vercel.app/
 
 ## 🙏 Acknowledgments
 
